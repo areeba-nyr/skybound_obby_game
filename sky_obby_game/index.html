@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skybound Obby</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; overflow: hidden; font-family: system-ui, Arial, sans-serif; background: #87ceeb; }
+    canvas { display: block; }
+    #hud {
+      position: fixed; top: 16px; left: 16px; z-index: 2; color: white;
+      background: rgba(15, 23, 42, .72); padding: 12px 16px; border-radius: 14px;
+      box-shadow: 0 6px 24px #0002; line-height: 1.5; user-select: none;
+    }
+    #hud strong { color: #fde047; }
+    #message {
+      position: fixed; left: 50%; top: 18px; transform: translateX(-50%); z-index: 3;
+      color: white; background: rgba(15, 23, 42, .78); border-radius: 999px;
+      padding: 10px 18px; font-weight: 700; text-align: center; max-width: 90vw;
+    }
+    #help {
+      position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%); z-index: 2;
+      background: rgba(15, 23, 42, .72); color: white; padding: 9px 14px;
+      border-radius: 12px; font-size: 13px; text-align: center; width: max-content; max-width: 94vw;
+    }
+    #overlay {
+      display: none; position: fixed; inset: 0; z-index: 5; background: rgba(8, 15, 35, .72);
+      color: white; align-items: center; justify-content: center; text-align: center; padding: 24px;
+    }
+    #overlay .panel { background: #172554; border: 2px solid #60a5fa; padding: 28px; border-radius: 22px; max-width: 420px; }
+    button { border: 0; border-radius: 12px; background: #facc15; color: #172033; font-size: 16px; font-weight: 800; padding: 12px 20px; cursor: pointer; }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="hud">
+    <div>🌤️ <strong>SKYBOUND OBBY</strong></div>
+    <div>Coins: <strong id="coins">0</strong> / <span id="totalCoins">6</span></div>
+    <div>Checkpoint: <strong id="checkpoint">Start</strong></div>
+  </div>
+  <div id="message">Reach the golden finish platform!</div>
+  <div id="help">Move: WASD / Arrow Keys · Jump: SPACE · Restart: R · Mouse: rotate camera</div>
+  <div id="overlay">
+    <div class="panel">
+      <h1>🏆 You made it!</h1>
+      <p>You completed Skybound Obby!</p>
+      <p id="finalScore"></p>
+      <button id="playAgain">Play again</button>
+    </div>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
